@@ -1,6 +1,7 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
 import styles from'../stylee/homepage.module.css'
+import Footer from '../components/Footer'
 
 function Homepage() {
   return (
@@ -44,6 +45,8 @@ function Homepage() {
         <img src='https://pic.onlinewebfonts.com/svg/img_281585.png' alt='wallet'/>
       </div>
       </div>
+
+      <Footer></Footer>
      
 
 {/* ------------- */}
