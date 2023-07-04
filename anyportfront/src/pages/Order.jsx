@@ -5,6 +5,7 @@ function Order() {
   return (
     <div>
       <Navbar></Navbar>
+      
     </div>
   )
 }
