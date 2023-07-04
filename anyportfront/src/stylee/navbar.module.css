@@ -21,7 +21,7 @@ line-height: 0px;
 }
 .link{
    text-decoration: none;
-   color: blue;
+   color: #007aff;
 }
 .link :hover{
     color: lightblue;
