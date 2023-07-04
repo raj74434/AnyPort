@@ -19,5 +19,6 @@
    color: #007aff;
 }
 .link :hover{
-    color: lightblue;
+    cursor: pointer;
+    color: #002fff;
 }

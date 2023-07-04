@@ -10,6 +10,7 @@
 }
 
 .footerbody h4:hover{
+    cursor: pointer;
    color: #007aff;
 }
 .footerbody h2{

@@ -4,8 +4,9 @@ import Navbar from '../components/Navbar'
 function Order() {
   return (
     <div>
+      <div className='Orderbody'>
       <Navbar></Navbar>
-      
+      </div>
     </div>
   )
 }

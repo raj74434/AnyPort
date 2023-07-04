@@ -48,7 +48,10 @@
     margin-top: 20px;
     border-radius: 10px;
 }
-
+.homeparcelform button:hover{
+    cursor: pointer;
+    background-color:  #002fff;;
+}
 
 .headright{
 
