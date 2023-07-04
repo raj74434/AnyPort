@@ -1,16 +1,18 @@
-
 .homebody{
-    border: solid black;
-background-color: #f3f4f6;
-padding: 50px 30px 20px 50px;
+    
+    background-color: #f3f4f6;
+    
 
 }
-
+.homecomponents{
+    padding: 2px 90px 5px 90px;
+}
 
 .head{
-    /* border: solid red; */
+    margin-top: 50px;
     display: flex;
     padding: 50px 30px 20px 50px;
+    justify-content: space-around;
     gap: 50px;
 }
 
@@ -86,9 +88,9 @@ background: gray;
 .payment{
     margin-top: 100px;
     justify-content: center;
-display: grid;
-grid-template-columns: repeat(3,100px);
-gap: 50px;
+    display: grid;
+    grid-template-columns: repeat(3,100px);
+    gap: 50px;
 }
 .payment img{
     width: 100%;

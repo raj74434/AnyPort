@@ -7,7 +7,7 @@ function Homepage() {
   return (
     <div className='homebody'>
       <Navbar></Navbar>
-      <div>
+      <div className='homecomponents'>
       <div className='head'>
 
         <div className='headleft'>
