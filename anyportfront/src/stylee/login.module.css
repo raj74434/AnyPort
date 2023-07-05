@@ -1,0 +1,34 @@
+.Loginbody{
+    text-align: center;
+    margin-top: 100px;
+    color: #007aff;
+}
+
+
+
+.loginform input{
+    border: solid gray;
+    margin-top: 20px;
+    font-size: 20px;
+    width: 350px;
+    height: 30px;
+    padding: 9px 20px 9px 20px;
+}
+.loginform input:hover{
+    border: solid #007aff;
+    
+}
+.loginform button{
+    width: 140px;
+    margin-top: 30px;
+    font-size: 20px;
+    color: white;
+    background-color: #007aff;
+    border: transparent;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+.loginform button:hover{
+background-color: #002fff;
+}

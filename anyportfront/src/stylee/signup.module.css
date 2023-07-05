@@ -1,0 +1,39 @@
+
+.signupbody{
+    text-align: center;
+   
+}
+.signupbody h1{
+    font-size: 50px;
+    color: #007aff;
+}
+
+.signupform select{ 
+    font-size: 15px;
+    margin-top: 20px;
+    width: 200px;
+    padding: 10px;
+}
+.signupform input{
+    font-size: 20px;
+    padding: 5px;
+    margin-top: 20px;
+      
+    width: 400px;
+    height: 30px;
+}
+
+
+.signupform button{
+    border: transparent;
+    border-radius: 5px;
+    color: white;
+    background-color: #007aff;
+    margin-top: 30px;
+    font-size: 20px;
+    width: 400px;
+    padding: 10px;
+}
+.signupform button:hover{
+background-color:#002fff ;
+}
