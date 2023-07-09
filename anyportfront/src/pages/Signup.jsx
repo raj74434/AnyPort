@@ -66,10 +66,10 @@ function Signup() {
 
   return (
     <div>
-      <div className='signupbody'>
+      <div className={styles.signupbody}>
       <Navbar></Navbar>
       <h1>Signup</h1>
-      <form className='signupform'>
+      <form className={styles.signupform}>
         <input name="name" onChange={fillForm} required="true" type='text' placeholder='Enter your name'/>
         <br/>
         <input name='phone' onChange={fillForm} required="true" type='number' placeholder='Enter your number' />

@@ -50,9 +50,9 @@ function Login() {
     <div>
        <Navbar></Navbar>
        
-      <div className='Loginbody'>
+      <div className={styles.Loginbody}>
       <h1>Happy to see you</h1>
-       <form className='loginform'>
+       <form className={styles.loginform}>
         <input name='phone' onChange={fillForm} required="true" placeholder='Enter phone number' />
         <br/>
         <input name='password' onChange={fillForm} required="true" placeholder='Enter password'/>

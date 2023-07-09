@@ -4,10 +4,10 @@ import styles from '../stylee/footer.module.css'
 function Footer() {
   return (
     <div>
-      <div className='footerbody'>  
+      <div className={styles.footerbody}>  
 
 
-        <div className='footer1'>
+        <div className={styles.footer1}>
           <h2>AnyPort</h2>
           <h3>Cities</h3>
           <h4>Delhi/NCR</h4>

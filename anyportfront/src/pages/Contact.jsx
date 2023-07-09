@@ -1,10 +1,11 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
+// import styles from ''
 
 function Contact() {
   return (
     <div>
-      <div className='contactbody'>
+      <div >
         <Navbar></Navbar>
 
       </div>
