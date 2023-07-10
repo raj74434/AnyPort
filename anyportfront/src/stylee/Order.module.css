@@ -1,0 +1,105 @@
+.orderbody{
+    background-color: #f3f4f6;
+    padding-bottom: 110px;
+}
+
+.orderComponents{
+    /* border: solid red; */
+    padding-top: 60px;
+    margin: auto;
+   
+    width: 1000px;
+}
+
+.orderTimeSelect{
+    
+    display: flex;
+}
+
+.orderTime{
+    border-radius: 15px;
+    padding: 10px;
+    background-color: white;
+    border: solid gray;
+}
+
+.orderTime:hover{
+    border: solid #007aff;
+}
+
+
+.weightSelecttext{
+    margin-top: 150px;
+}
+
+.weightSelect{
+    
+    width: 250px;
+    font-size: 20px;
+    padding: 10px;
+    
+}
+
+.orderpickup{
+    margin-top: 30px;
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px;
+    line-height: 3px;
+}
+
+.orderpickup input{
+    width: fit-content;
+    min-width: 400px;
+    /* width: 400px; */
+    padding: 5px;
+    font-size: 20px;
+    margin-bottom: 5px;
+    border: solid grey;
+}
+
+.orderpickup input:hover{
+border: solid #007aff;
+}
+
+.wholeAddress{
+    height: 100px;
+}
+
+.orderdrop{
+    /* margin-top: 50px; */
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px;
+    line-height: 3px;
+}
+.orderdrop input{
+    width: 400px;
+    padding: 5px;
+    font-size: 20px;
+    margin-bottom: 5px;
+    border: solid grey;
+}
+.orderdrop input:hover{
+    border: solid #007aff;
+    }
+
+
+.devideLine{
+color: #007aff;
+text-align: center;
+}
+
+.submitOrder{
+    margin-top: 40px;
+    border: transparent;
+    border-radius: 6px;
+    width: 150px;
+    padding: 10px;
+    background-color: #007aff;
+    color: white;
+    cursor: pointer;
+    margin-left: 40%;
+    font-size: 20px;
+}
+

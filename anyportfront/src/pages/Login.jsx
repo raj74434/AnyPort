@@ -33,6 +33,7 @@ function Login() {
       
     })
     .then((r)=>{
+      console.log(r.headers);
       console.log(r.headers.get("sessionId"));
       return r.json()})
     .then((d)=>{console.log(d)})
