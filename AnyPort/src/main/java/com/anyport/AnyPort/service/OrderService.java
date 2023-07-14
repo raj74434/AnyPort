@@ -5,6 +5,7 @@ import com.anyport.AnyPort.models.Orders;
 
 public interface OrderService {
 
-    public Orders createOrder(OrderDto orderDto);
+    public Orders createOrder(Orders orders,Integer id);
+
 
 }

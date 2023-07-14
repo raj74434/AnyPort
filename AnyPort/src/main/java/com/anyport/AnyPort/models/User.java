@@ -5,6 +5,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.beans.factory.annotation.Value;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class User {
@@ -25,6 +27,8 @@ public class User {
     private Background verify;
 
 
+    @OneToMany(cascade = CascadeType.ALL)
+    List<Orders> order=new ArrayList<>();
 
 
     @Override
@@ -38,6 +42,26 @@ public class User {
                 ", password='" + password + '\'' +
                 ", verify=" + verify +
                 '}';
+    }
+
+    public void addOrder(Orders orders) {
+        order.add(orders);
+    }
+
+    public Background getVerify() {
+        return verify;
+    }
+
+    public void setVerify(Background verify) {
+        this.verify = verify;
+    }
+
+    public List<Orders> getOrder() {
+        return order;
+    }
+
+    public void setOrder(List<Orders> order) {
+        this.order = order;
     }
 
     public String getType() {

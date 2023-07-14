@@ -4,13 +4,21 @@ import com.anyport.AnyPort.dto.OrderDto;
 import com.anyport.AnyPort.mappingInfo.MappingInfo;
 import com.anyport.AnyPort.models.ActiveOrders;
 import com.anyport.AnyPort.models.Orders;
+import com.anyport.AnyPort.models.User;
 import com.anyport.AnyPort.repository.ActiveOrderRepo;
 import com.anyport.AnyPort.repository.OrdersRepo;
+import com.anyport.AnyPort.repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
+import java.util.Optional;
+
 @Service
 public class OrderServiceImpl implements OrderService {
+
+    @Autowired
+    private UserRepo userRepo;
     @Autowired
     private OrdersRepo ordersRepo;
 
@@ -20,13 +28,21 @@ public class OrderServiceImpl implements OrderService {
     @Autowired
     private ActiveOrderRepo activeOrderRepo;
 
-    public Orders createOrder(OrderDto orderDto){
-        orderDto.setStatus("Active");
-        Orders orders=mapper.dto_To_Orders(orderDto);
-        Orders final_order=ordersRepo.save(orders);
-        ActiveOrders activeOrders=mapper.orders_To_ActiveOrders(final_order);
-
-       return final_order;
+    @Override
+    public Orders createOrder(Orders orders,Integer id){
+        Optional<User> user=userRepo.findById(id);
+        User response=user.get();
+        if(response!=null) {
+            orders.setStatus("Active");
+            orders.setOrderPlacedTime(LocalDateTime.now());
+            response.addOrder(orders);
+            ActiveOrders activeOrders = mapper.orders_To_ActiveOrders(orders);
+             userRepo.save(response);
+             return orders;
+        }
+        else{
+            return null;
+        }
     }
 
 
