@@ -27,7 +27,7 @@ public class AnyPortApplication {
 
 	@Bean
 	public Address createAddress(){
-		return new Address();
+		return new Address(); 
 	}
 
 

@@ -42,6 +42,7 @@ public class CustomerController {
     @CrossOrigin
     @GetMapping("/oldOrd/{id}")
     public ResponseEntity<List<Orders>> customerOrderhistory(@PathVariable Integer id){
+        System.out.println(id);
         return new ResponseEntity<>(userService.oldOrders(id),HttpStatus.OK);
     }
 
@@ -60,14 +61,14 @@ public class CustomerController {
 
     @CrossOrigin
     @PutMapping("/updateProfile/{userId}")
-    private ResponseEntity<User> Signup(@RequestBody UserDto userDto,Integer userId){
+    private ResponseEntity<User> updateProfile(@RequestBody UserDto userDto,Integer userId){
 
         return new ResponseEntity<>(userService.updateUserProfile(userId,userDto), HttpStatus.ACCEPTED);
     }
 
     @CrossOrigin
     @GetMapping("/getOrderDetails/{orderId}")
-    private ResponseEntity<Orders> Signup(Integer orderId){
+    private ResponseEntity<Orders> getOrderStatus(@PathVariable Integer orderId){
 
         return new ResponseEntity<>(userService.orderStatus(orderId), HttpStatus.ACCEPTED);
     }

@@ -44,6 +44,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<Orders> oldOrders(Integer id){
+        System.out.println("Oder details");
         List<Orders> orders=ordersRepo.findByCustomerUser(id);
         return orders;
     }
@@ -69,6 +70,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Orders orderStatus(Integer orderId){
+
         Orders orders=ordersRepo.findById(orderId).orElseThrow(()-> new RuntimeException());
         return orders;
     }
