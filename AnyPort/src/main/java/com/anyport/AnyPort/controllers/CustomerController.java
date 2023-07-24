@@ -65,6 +65,11 @@ public class CustomerController {
         return new ResponseEntity<>(userService.updateUserProfile(userId,userDto), HttpStatus.ACCEPTED);
     }
 
+    @CrossOrigin
+    @GetMapping("/getOrderDetails/{orderId}")
+    private ResponseEntity<Orders> Signup(Integer orderId){
 
+        return new ResponseEntity<>(userService.orderStatus(orderId), HttpStatus.ACCEPTED);
+    }
 
 }

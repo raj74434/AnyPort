@@ -14,4 +14,6 @@ public interface UserService {
     User getUserProfile(Integer id);
 
     User updateUserProfile(Integer id, UserDto userDto);
+
+    Orders orderStatus(Integer orderId);
 }

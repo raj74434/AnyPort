@@ -67,5 +67,10 @@ public class UserServiceImpl implements UserService {
         return userRepo.save(user);
     }
 
+    @Override
+    public Orders orderStatus(Integer orderId){
+        Orders orders=ordersRepo.findById(orderId).orElseThrow(()-> new RuntimeException());
+        return orders;
+    }
 
 }
