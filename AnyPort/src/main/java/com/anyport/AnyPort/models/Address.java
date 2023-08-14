@@ -21,7 +21,7 @@ public class Address {
 
     private String phone;
 
-    private String longitude;
+    private Double longitude;
 
-    private String latitude;
+    private Double latitude;
 }

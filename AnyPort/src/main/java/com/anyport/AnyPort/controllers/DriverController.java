@@ -15,32 +15,32 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Controller
-@RequestMapping("/drive")
+@RequestMapping("/rider")
 public class DriverController {
 
     @Autowired
     private DriverService driverService;
 
-    @CrossOrigin
-    @PostMapping("/createNewDriver")
+    @CrossOrigin("*")
+    @PostMapping("/createNewRider")
     public ResponseEntity<User> createDriverUser(@RequestBody  UserDto userDto) {
       return new ResponseEntity<>(driverService.createDriverUser(userDto),HttpStatus.CREATED);
     }
 
     @CrossOrigin
-    @PostMapping("/verifyBackground/{userId}")
+    @PostMapping("/all/verifyBackground/{userId}")
     public ResponseEntity<Background> verifyBackground(@RequestBody  Background background ,Integer userId) {
         return new ResponseEntity<>(driverService.veryfyBackground(background,userId),HttpStatus.CREATED);
     }
 
     @CrossOrigin
-    @GetMapping("/activeOrders")
+    @GetMapping("/all/activeOrders")
     public ResponseEntity<List<ActiveOrders>> getAllActiveOrders(){
         return new ResponseEntity<>(driverService.getAllActiveOrders(), HttpStatus.OK);
     }
 
     @CrossOrigin
-    @GetMapping("/catchOrder")
+    @GetMapping("/all/catchOrder")
     public ResponseEntity<List<Orders>> catchOrder(Integer orderId,Integer userId){
         return new ResponseEntity<>(driverService.catchOrder(orderId,userId), HttpStatus.OK);
     }

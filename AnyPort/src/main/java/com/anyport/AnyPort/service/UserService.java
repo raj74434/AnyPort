@@ -1,5 +1,6 @@
 package com.anyport.AnyPort.service;
 
+import com.anyport.AnyPort.dto.DistanceDTO;
 import com.anyport.AnyPort.dto.UserDto;
 import com.anyport.AnyPort.models.Orders;
 import com.anyport.AnyPort.models.User;
@@ -16,4 +17,8 @@ public interface UserService {
     User updateUserProfile(Integer id, UserDto userDto);
 
     Orders orderStatus(Integer orderId);
+
+
+
+    DistanceDTO calculateDistance(DistanceDTO distanceDTO);
 }

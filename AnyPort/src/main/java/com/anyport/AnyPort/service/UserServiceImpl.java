@@ -1,5 +1,6 @@
 package com.anyport.AnyPort.service;
 
+import com.anyport.AnyPort.dto.DistanceDTO;
 import com.anyport.AnyPort.dto.UserDto;
 import com.anyport.AnyPort.mappingInfo.MappingInfo;
 import com.anyport.AnyPort.models.Orders;
@@ -31,13 +32,9 @@ public class UserServiceImpl implements UserService {
 
     public User createCustomerUser(UserDto userDto){
         User user=mapper.userDto_to_user(userDto);
-        user.setUserType("Customer");
+        user.setUserType("ROLE_CUSTOMER");
         user.setPassword(passwordEncoder.encode(user.getPassword()));
-//        This thing also work ==============================
 
-//        userEntity.setGender(userDto.getGender());
-//        userEntity.setName(userDto.getName());
-//        =========================================================
         return userRepo.save(user);
 
     }
@@ -48,10 +45,12 @@ public class UserServiceImpl implements UserService {
         List<Orders> orders=ordersRepo.findByCustomerUser(id);
         return orders;
     }
+
+//    By this we are setting order details of Rider User
     @Override
     public User getUserProfile(Integer id){
        User user= userRepo.findById(id).orElseThrow();
-       if(user.getUserType().equals("Rider")){
+       if(user.getUserType().equals("ROLE_RIDER")){
            user.setOrder(user.getDriverOrders());
        }
        return user;
@@ -74,5 +73,33 @@ public class UserServiceImpl implements UserService {
         Orders orders=ordersRepo.findById(orderId).orElseThrow(()-> new RuntimeException());
         return orders;
     }
+
+
+//    Calculate distance in 2 locations
+
+        // Radius of the Earth in kilometers
+        private static final double EARTH_RADIUS_KM = 6371.0;
+    @Override
+        public DistanceDTO calculateDistance(DistanceDTO distanceDTO) {
+            // Convert latitude and longitude from degrees to radians
+            double radLat1 = Math.toRadians(distanceDTO.getSenderLatitude());
+            double radLon1 = Math.toRadians(distanceDTO.getSenderLongitude());
+            double radLat2 = Math.toRadians(distanceDTO.getReciverLatitude());
+            double radLon2 = Math.toRadians(distanceDTO.getReciverLongitude());
+
+            // Haversine formula
+            double dLat = radLat2 - radLat1;
+            double dLon = radLon2 - radLon1;
+            double a = Math.pow(Math.sin(dLat / 2), 2) + Math.cos(radLat1) * Math.cos(radLat2) * Math.pow(Math.sin(dLon / 2), 2);
+            double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+            double distance = EARTH_RADIUS_KM * c;
+            distanceDTO.setPrice((int)distance*2*10);
+
+            return distanceDTO;
+        }
+
+
+
+
 
 }

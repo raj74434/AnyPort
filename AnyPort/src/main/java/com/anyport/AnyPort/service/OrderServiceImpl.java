@@ -1,6 +1,6 @@
 package com.anyport.AnyPort.service;
 
-import com.anyport.AnyPort.dto.OrderDto;
+import com.anyport.AnyPort.dto.DistanceDTO;
 import com.anyport.AnyPort.dto.PlaceOrderDTO;
 import com.anyport.AnyPort.mappingInfo.MappingInfo;
 import com.anyport.AnyPort.models.ActiveOrders;
@@ -34,7 +34,8 @@ public class OrderServiceImpl implements OrderService {
     @Autowired
     private ActiveOrderRepo activeOrderRepo;
 
-
+    @Autowired
+    private UserService userService;
 
     @Override
     public Orders createOrder(PlaceOrderDTO placeOrderDTO, Integer id){
@@ -45,7 +46,22 @@ public class OrderServiceImpl implements OrderService {
             orders.setOrderPlacedTime(LocalDateTime.now());
             orders.setPayment_method(placeOrderDTO.getPayment_method());
             orders.setPayment_by(placeOrderDTO.getPayment_by());
-            orders.setPrice(1000);
+
+            DistanceDTO distanceDTO=new DistanceDTO();
+            distanceDTO.setReciverLatitude (placeOrderDTO.getReciver().getLatitude());
+            distanceDTO.setReciverLongitude(placeOrderDTO.getReciver().getLongitude());
+            distanceDTO.setSenderLatitude(placeOrderDTO.getSender().getLatitude()) ;
+            distanceDTO.setSenderLongitude(placeOrderDTO.getSender().getLongitude());
+
+            if(placeOrderDTO.getReciver().getLatitude() != null
+                    && placeOrderDTO.getReciver().getLongitude()!=null
+                    && placeOrderDTO.getSender().getLatitude() != null
+                    && placeOrderDTO.getSender().getLongitude()!=null
+            ){
+                distanceDTO.setPrice(userService.calculateDistance(distanceDTO).getPrice());
+                orders.setPrice(distanceDTO.getPrice());
+            }
+             else orders.setPrice(1000);
 
             Address senderAddress=new Address();
             senderAddress.setArea(placeOrderDTO.getSender().getArea());

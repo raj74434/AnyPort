@@ -41,7 +41,7 @@ public class DriverServiceImpl implements  DriverService {
     @Override
     public User createDriverUser(UserDto userDto){
         User user=mapper.userDto_to_user(userDto);
-        user.setUserType("Rider");
+        user.setUserType("ROLE_RIDER");
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         return userRepo.save(user);
     }

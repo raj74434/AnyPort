@@ -6,6 +6,7 @@ import com.anyport.AnyPort.repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -30,7 +31,7 @@ public class UserDetailService implements UserDetailsService {
             User customer= opt;
 
             List<GrantedAuthority> authorities= new ArrayList<>();
-            //authorities.add(new SimpleGrantedAuthority(customer.getRole()));
+            authorities.add(new SimpleGrantedAuthority(customer.getUserType()));
 
 
             return new org.springframework.security.core.userdetails.User(customer.getPhone(), customer.getPassword(), authorities);
