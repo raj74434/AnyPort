@@ -1,7 +1,15 @@
 import React, { useEffect, useRef, useState } from 'react'
 import Navbar from '../components/Navbar'
+import Footer from '../components/Footer'
 import styles from '../stylee/signup.module.css'
+import Model from '../components/Model';
 function Signup() {
+
+
+  const [alert,setAlert]=useState(false);
+
+  const hideAlert=()=>setAlert(false)
+  // const showAlert=()=>setAlert(true)
 
   const[form,setForm]=useState({
     name:"",
@@ -34,10 +42,6 @@ function Signup() {
       headers:{"content-type":"application/json"},
       body:JSON.stringify(
         form
-        // name:form.name,
-        // phone:form.name,
-        // gender:form.gender,
-        // password:form.password
       )
        
       
@@ -45,29 +49,25 @@ function Signup() {
     )
     .then((r)=>r.json())
     .then((d)=>{console.log(d)  })
-    .catch((m)=>{console.log(m)});
+    .catch((m)=>{
+      setAlert(true)
+      // console.log(m)
+    });
    
 
   }
     
     
-  //   fetch("http://localhost:8080/check")
-  //   .then((response) => response.json())
-  //   .then((data) => {
-  //     console.log(data);
-  //   })
-  //   .catch((error) => {
-  //     console.log(error);
-  //   });
-
-  // 
-
 
 
   return (
     <div>
-      <div className={styles.signupbody}>
+      {alert && <Model hide={hideAlert}/>}
       <Navbar></Navbar>
+
+      {alert && <Model hide={hideAlert} />}
+      
+      <div className={styles.signupbody}>
       <h1>Signup</h1>
       <form className={styles.signupform}>
         <input name="name" onChange={fillForm} required="true" type='text' placeholder='Enter your name'/>
@@ -85,6 +85,9 @@ function Signup() {
         <button type='submit' onClick={doSignup} >Signup</button>
       </form>
       </div>
+
+      <Footer></Footer>
+
     </div>
   )
 }

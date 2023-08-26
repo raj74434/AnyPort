@@ -1,0 +1,32 @@
+
+.back{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(189, 189, 189,0.5);
+    
+}
+.model{
+    background-color: white;
+    width: 500px;
+    border-radius: 10px;
+    padding: 30px;
+    position:fixed;
+    top: 50%;
+    left: 50%;
+    transform:translate(-50%,-50%);
+   
+    text-align: center;
+    margin: auto;
+}
+
+.popupBtn{
+    margin-top: 10px;
+    background-color: black;
+    color: white;
+    font-size: 18px;
+    padding: 5px 30px;
+    border-radius: 10px;
+}

@@ -1,12 +1,24 @@
-import React from 'react'
+import React,{useState} from 'react'
 import Navbar from '../components/Navbar'
 import styles from '../stylee/Order.module.css'
 import Footer from '../components/Footer'
+import Model from '../components/Model'
 
 function Order() {
+
+  const [alert,setAlert]=useState(false);
+
+  const hideAlert=()=>setAlert(false)
+
+
+  const orderNow=()=>{
+    setAlert(true);
+  }
+
+
   return (
     <div>
-      
+      {alert && <Model hide={hideAlert}/>}
       <div className={styles.orderbody}>
       <Navbar></Navbar>
       <div className={styles.orderComponents} >
@@ -63,7 +75,7 @@ function Order() {
       
 
 
-    <button className={styles.submitOrder}>Order Now</button>
+    <button className={styles.submitOrder} onClick={()=>orderNow()}>Order Now</button>
       {/* order body ended here */}
       </div> 
       

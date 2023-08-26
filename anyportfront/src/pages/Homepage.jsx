@@ -5,8 +5,11 @@ import Footer from '../components/Footer'
 
 function Homepage() {
   return (
-    <div className={styles.homebody}>
+    <div>
       <Navbar></Navbar>
+    
+    <div className={styles.homebody}>
+      
       <div className={styles.homecomponents}>
       <div className={styles.head}>
 
@@ -52,6 +55,9 @@ function Homepage() {
 {/* ------------- */}
 
       </div>
+
+
+    </div>
 
 
     </div>

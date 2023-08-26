@@ -1,9 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import Navbar from '../components/Navbar'
+import Footer from '../components/Footer'
 import styles from '../stylee/login.module.css'
 import { json } from 'react-router-dom';
+import Model from '../components/Model';
 
 function Login() {
+
+  const [alert,setAlert]=useState(false);
+
+  const hideAlert=()=>setAlert(false)
 
   const[loginKey,setLoginKey]=useState();
 
@@ -40,7 +46,7 @@ function Login() {
     .catch((m)=>{console.log(m)})
     // const sessionId = localStorage.getItem('sessionId');
     
-    
+    setAlert(true);
     setLoginKey(key);
 
   }
@@ -50,7 +56,7 @@ function Login() {
   return (
     <div>
        <Navbar></Navbar>
-       
+       {alert && <Model hide={hideAlert}/>}
       <div className={styles.Loginbody}>
       <h1>Happy to see you</h1>
        <form className={styles.loginform}>
@@ -61,7 +67,7 @@ function Login() {
         <button type='submit' onClick={doLogin}>Login</button>
        </form>
       </div>
-      
+      <Footer></Footer>
     </div>
   )
 }

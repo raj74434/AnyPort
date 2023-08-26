@@ -5,7 +5,7 @@ import styles from '../stylee/contact.module.css'
 
 function Contact() {
   return (
-    <div>
+    <div> 
       <Navbar></Navbar>
       <div  >
         
