@@ -35,7 +35,7 @@ function Signup() {
 
    
 
-    const d= fetch("http://localhost:8080/signup",
+    const d= fetch("http://localhost:8080/customer/signup",
     {
       method:"POST",
       
@@ -50,7 +50,7 @@ function Signup() {
     .then((r)=>r.json())
     .then((d)=>{console.log(d)  })
     .catch((m)=>{
-      setAlert(true)
+      // setAlert(true)
       // console.log(m)
     });
    

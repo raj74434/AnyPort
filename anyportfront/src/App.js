@@ -6,6 +6,7 @@ import Homepage from './pages/Homepage';
 import Contact from './pages/Contact';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
+import ActiveOrders from './pages/ActiveOrders';
 import React from "react"
 
 
@@ -18,6 +19,8 @@ function App() {
         <Route path='/login' element={<Login></Login>}/>
         <Route path='/signup' element={<Signup></Signup>}/>
         <Route path="/support" element={<Contact></Contact>}/>
+        <Route path="/activeOrders" element={<ActiveOrders></ActiveOrders>}/>
+        <Route path="/activeOrders" element={<Contact></Contact>}/>
       </Routes>
   
     </div>
